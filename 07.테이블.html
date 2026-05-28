@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>07. 테이블</title>
+</head>
+<body>
+  <h4> 기본 테이블 </h4>
+  <hr>
+  <table border="1"> <!-- 라인을 생성 -->
+    <!-- 주석은 브라우저로 보이므로
+         보안과 관련되거나 이상한 내용을 적지 말것. -->
+    <tr>
+      <th>컬럼1</th>
+      <th>컬럼2</th>
+      <!-- <th></th> : 컬럼(열)의 제목을 지정
+                       (정렬 설정이 별도로 없으면 디폴트는 가운데 정렬이 됨.)
+                     : 시멘틱(semantic) -->
+    </tr>
+    <tr>       <!-- 행을 만드는 것(지정) -->
+      <td >    <!-- 열을 만드는 것(지정) -->
+               <!-- 실제 내용 -->
+        셀1
+        <!-- 가로 세로의 길이는 셀 안의 데이터에 따라 유동적으로 조정됨 -->
+        <!-- 해당 태그에 width="100" height="100" 속성으로 줄수도 있으나 CSS로 하는 것이 권장됨. -->
+      </td>
+      <td>셀2</td>
+    </tr>
+    <tr>
+      <td>셀3</td>
+      <td>셀4</td>
+      <!-- <td>셀5</td> <-- 테이블이 깨짐, 모든 행의 열의 값은 다 같아야 함.-->
+    </tr>
+  </table>
+
+<!-- 셀 합치기 -->
+  <br>
+  <h4>셀 합치기</h4>
+  <hr>
+  <table border="1" width="100">
+  <tr>
+    <td colspan="3">1</td>
+    <!--<td>2</td>-->
+    <!--<td>3</td>-->
+  </tr>
+  <tr>
+    <td rowspan="2">4</td>
+    <td colspan="2" rowspan="2">5</td>
+    <!--<td>6</td>-->
+  </tr>
+  <tr>
+    <!-- <td>7</td> -->
+    <!--<td>8</td>-->
+    <!--<td>9</td>-->
+  </tr>
+</table>
+
+  <!-- 표 구조 정의하기 -->
+  <br>
+  <h4>표 구조 정의하기</h4>
+  <hr>
+  <table border="1">
+    <caption><!-- 전체 표의 제목을 적을 수 있음. --> 학생 성적표 </caption>
+    <thead>
+      <!--표의 제목-->
+      <tr>
+        <th>이름</th>
+        <th>국어</th>
+        <th>영어</th>
+        <th>수학</th>
+        <th>평균</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--표의 내용-->
+      <tr>
+        <td>김철수</td>
+        <td>85</td>
+        <td>90</td>
+        <td>78</td>
+        <td>84.3</td>
+      </tr>
+      <tr>
+        <td>이영희</td>
+        <td>92</td>
+        <td>88</td>
+        <td>95</td>
+        <td>91.7</td>
+      </tr>
+      <tr>
+        <td>박민수</td>
+        <td>76</td>
+        <td>82</td>
+        <td>89</td>
+        <td>82.3</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <!--표의 요약-->
+      <tr>
+        <td>합계</td>
+        <td>253</td>
+        <td>260</td>
+        <td>262</td>
+        <td>258.3</td>
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+</html>
