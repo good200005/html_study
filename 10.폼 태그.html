@@ -5,7 +5,7 @@
   <title>10. 폼 태그</title>
 </head>
 <body>
-  <form action="">
+  <form action="#" method="post">
     <!--
 
       [form 태그 관련 속성]
@@ -14,11 +14,6 @@
        - method : 전송 방식
 
     -->
-    <label>
-      ID : <input type="text" name="" id=""><br>
-      PW : <input type="text" name="" id="">
-    </label>
-
     <!--
 
         <label> 태그는 보이는 것은 아무런 의미는 없으나
@@ -26,6 +21,86 @@
         문자 같은 것을 클릭해도 아무런 동작을 하지 않음.
 
       -->
+    <!--label 방법 1
+
+    <label> 아이디 <input type="text" name="" id=""></label><br>
+    <label> 패스워드 <input type="text" name="" id=""></label>
+
+    -->
+    <!--label 방법 2 (추천)-->
+    <fieldset>
+      <legend>기본 정보</legend><!-- fieldset의 제목 -->
+      <label for="txt1"> 아이디 </label>
+      <input type="text" name="username" id="txt1" placeholder="입력하세요." maxlength="5" minlength="2"><br>
+
+      <label for="password">패스워드</label>
+      <input type="password" name="password" id="password"><br>
+
+      <label for="email">이메일</label>
+      <input type="email" name="email" id="email"><br>
+    </fieldset>
+
+
+    <label for="product-quantity">상품수량 (1~10개)</label>
+    <input type="number" name="quantity" id="product-quantity"
+           value="1" min="1" max="10" step="1"><br>
+
+    <label for="reservation-date">예약 날짜</label>
+    <input type="date" name="reservation-date" id="reservation-date"
+           min="2026-01-01" max="2026-12-31"><br>
+
+    <label for="volume">볼륨 (0~100):</label>
+    <input type="range" id="volume" name="volume"
+           min="0" max="100" step="5" value="40"><br>
+
+    <label for="profile-photo">프로필 사진 (이미지만) :</label>
+    <input type="file" name="profile-photo" id="profile-photo"
+           accept="image/*" multiple><br>
+
+    <label for="male">남성</label>
+    <input type="radio" name="gender" id="male" value="male">
+    <label for="female">여성</label>
+    <input type="radio" name="gender" id="female" value="female">
+    <br>
+
+    <label for="html">HTML</label>
+    <input type="checkbox" name="interests" id="html" value="html">
+    <label for="css">CSS</label>
+    <input type="checkbox" name="interests" id="css" value="css">
+    <label for="javascript">Javascript</label>
+    <input type="checkbox" name="interests" id="javascript" value="javascript">
+    <br>
+    <!-- checkbox / radio의 경우 name이 같아야 함. -->
+    <!-- checkbox에 체크한 것이 여러 개이면 배열로 전송됨. -->
+
+    <label for="review"> 상품 후기</label><br>
+    <textarea name="review" id="review" cols="50" rows="15"></textarea><br>
+    <!--<input type="submit" value="전송하기"><br>-->
+    <!-- textarea는 우하단을 통해 드래그하여 크기 조정이 가능함. -->
+
+    <!-- select 태그(드롭다운) -->
+    <label for="city">도시</label>
+    <select name="city" id="city" multiple>
+      <option>-- 선택하시오 --</option><!-- 이 값이 제외되려면 Javascript로 막아야 함. -->
+      <option value="seoul">서울</option>
+      <option value="busan">부산</option>
+      <option value="daegu">대구</option>
+      <!-- multiple 속성을 입력하면 ctrl 키 입력 상태에서 클릭 시 다중 선택이 가능해짐. -->
+    </select><br>
+
+    <button type="submit">전송</button>
+    <!-- type 생략시 default(submit)이 실행됨.-->
+    <button type="reset">취소</button>
+    <button type="button" onclick="alert('버튼 클릭')">일반버튼</button>
+    <!-- 위의 경우에는 Javascript의 이벤트 처리로 구현 -->
   </form>
+
+  <!--
+
+    get 방식 : 폼 데이터를 URL에 담아서 전송(URL에 데이터가 노출되고, 전송 용량에 제한)
+    post 방식 : 폼 데이터를 http 요청 body(본문)에 담아 전송
+               (URL에 데이터가 노출되지 않고 전송 용량 제한 없음)
+
+  -->
 </body>
 </html>
